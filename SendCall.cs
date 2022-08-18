@@ -14,7 +14,8 @@ namespace PruebaOnurix
                 { "message", "AQUI_EL_MENSAJE_A_ENVIAR"},
                 { "voice", "AQUI_TIPO_DE_VOZ" },
                 { "retries", "AQUI_NUMERO_DE_INTENTOS"},
-                { "leave-voicemail","false"},
+                { "leave-voicemail","AQUI_CONFIRMACION_BUZON_DE_VOZ"},
+                //{ "audio-code","AQUI_ID_AUDIO"},
                 { "country-code","CO"}
 
             };
