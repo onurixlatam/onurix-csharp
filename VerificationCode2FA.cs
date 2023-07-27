@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -13,11 +13,8 @@ namespace PruebaOnurix
                 { "phone", "AQUI_EL_NUMERO_DE_CELULAR"},
                 { "app-name", "AQUI_NOMBRE_APP"},
                 { "code", "AQUI_CODIGO"},
-                { "country-code", "CO"}
-
             };
             VerificationCode2FA(parameters);
-
         }
 
         public static void VerificationCode2FA(Dictionary<string,string> parameters)

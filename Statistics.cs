@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -27,6 +27,7 @@ namespace PruebaOnurix
             };
             HttpResponseMessage request = httpClient.PostAsync("/api/v1/url/short-statistic", new FormUrlEncodedContent(parameters)).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }

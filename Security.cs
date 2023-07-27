@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -12,6 +12,7 @@ namespace PruebaOnurix
                 { "key", "AQUI_SU_KEY"},
                 { "phone", "AQUI_EL_NUMERO_DE_CELULAR"},
                 { "name", "AQUI_NOMBRE_CONTACTO"}
+                { "channel", "AQUI_CANAL_A_BLOQUEAR"}
             };
             BlockPhone(parameters);
 
@@ -25,6 +26,7 @@ namespace PruebaOnurix
             };
             HttpResponseMessage request = httpClient.PostAsync("api/v1/block-phone", new FormUrlEncodedContent(parameters)).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }
