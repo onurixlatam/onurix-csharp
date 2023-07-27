@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -16,7 +16,7 @@ namespace PruebaOnurix
                 { "retries", "AQUI_NUMERO_DE_INTENTOS"},
                 { "leave-voicemail","AQUI_CONFIRMACION_BUZON_DE_VOZ"},
                 //{ "audio-code","AQUI_ID_AUDIO"},
-                { "country-code","CO"}
+                { "groups","AQUI_ID_GRUPO"}
 
             };
             SendCall(parameters);
@@ -31,6 +31,7 @@ namespace PruebaOnurix
             };
             HttpResponseMessage request = httpClient.PostAsync("api/v1/call/send", new FormUrlEncodedContent(parameters)).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }

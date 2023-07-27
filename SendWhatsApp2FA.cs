@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -12,11 +12,8 @@ namespace PruebaOnurix
                 { "key", "AQUI_SU_KEY"},
                 { "phone", "AQUI_EL_NUMERO_DE_CELULAR"},
                 { "app-name","AQUI_NOMBRE_APP"},
-                { "country-code","CO"}
-
             };
             SendSMS2FA(parameters);
-
         }
 
         public static void SendSMS2FA(Dictionary<string,string> parameters)
@@ -25,8 +22,9 @@ namespace PruebaOnurix
             {
                 BaseAddress = new Uri("https://www.onurix.com"),
             };
-            HttpResponseMessage request = httpClient.PostAsync("/api/v1/2fa/send-whatsapp", new FormUrlEncodedContent(parameters)).Result;
+            HttpResponseMessage request = httpClient.PostAsync("/api/v1/whatsapp/2fa/send", new FormUrlEncodedContent(parameters)).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }

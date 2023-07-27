@@ -1,5 +1,6 @@
 //Este codigo fue hecho en .net 6
 using System.Text;
+using System.Net.Http;
 
 namespace PruebaOnurix
 {
@@ -19,7 +20,7 @@ namespace PruebaOnurix
             //string parameters = "{\"phone\": \"573201234567\",\"body\": [\"Parametro1\",\"Parametro2\"]}";
             using var httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("https://www.onurix.com"),
+                BaseAddress = new Uri("https://www.onurix.com/"),
             };
             HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/shopify/order?client={client}&key={key}&template={template}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;

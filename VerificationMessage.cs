@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace PruebaOnurix
 {
@@ -14,10 +14,11 @@ namespace PruebaOnurix
         {
             using var httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("https://www.onurix.com"),
+                BaseAddress = new Uri("https://www.onurix.com/"),
             };
-            HttpResponseMessage request = httpClient.GetAsync($"api/v1/messages-state?client={client}&key={key}&id{idMensaje}").Result;
+            HttpResponseMessage request = httpClient.GetAsync($"api/v1/messages-state?client={client}&key={key}&id={idMensaje}").Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }
