@@ -1,6 +1,6 @@
 //Este codigo fue hecho en .net 6
 using System.Text;
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -18,7 +18,7 @@ namespace PruebaOnurix
             string parameters = "AQUI_EL_JSON_CON_LOS_VALORES_PARA_LA_PLANTILLA"
             using var httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("https://www.onurix.com"),
+                BaseAddress = new Uri("https://www.onurix.com/"),
             };
             HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/woocommerce/order?client={client}&key={key}&template={template}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;

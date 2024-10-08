@@ -1,5 +1,5 @@
 //Este codigo fue hecho en .net 6
-
+using System.Net.Http;
 namespace PruebaOnurix
 {
     public class Program
@@ -12,11 +12,8 @@ namespace PruebaOnurix
                 { "key", "AQUI_SU_KEY"},
                 { "phone", "AQUI_EL_NUMERO_DE_CELULAR"},
                 { "sms","AQUI_EL_SMS_A_ENVIAR"},
-                { "country-code","CO"}
-
             };
             SendSMS(parameters);
-
         }
 
         public static void SendSMS(Dictionary<string,string> parameters)
@@ -25,8 +22,9 @@ namespace PruebaOnurix
             {
                 BaseAddress = new Uri("https://www.onurix.com"),
             };
-            HttpResponseMessage request = httpClient.PostAsync("/api/v1/send-sms", new FormUrlEncodedContent(parameters)).Result;
+            HttpResponseMessage request = httpClient.PostAsync("/api/v1/sms/send", new FormUrlEncodedContent(parameters)).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(responseString);
         }
     }
 }
