@@ -17,7 +17,6 @@ namespace PruebaOnurix
             string client = "AQUI_SU_CLIENT";
             string template = "AQUI_EL_NOMBRE_DE_LA_PLANTILLA";
             string parameters = "AQUI_EL_JSON_CON_LOS_VALORES_PARA_LA_PLANTILLA"
-            //string parameters = "{\"phone\": \"573201234567\",\"body\": [\"Parametro1\",\"Parametro2\"]}";
             using var httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("https://www.onurix.com/"),
