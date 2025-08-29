@@ -85,6 +85,7 @@ A continuación, se detalla cada endpoint de ejemplo y el método HTTP que utili
 | :----------------------- | :------------ | :-------------------------------------------------------------- |
 | `SendWhatsApp2FA.cs`     | `POST (JSON)` | Envía un mensaje de WhatsApp con un código de verificación 2FA. |
 | `WhatsAppGeneralSend.cs` | `POST (JSON)` | Envía un mensaje de WhatsApp usando una plantilla.              |
+| `SendWhatsAppWithoutTemplate.cs` | `POST (JSON)` | Envía un mensaje de WhatsApp sin usar una plantilla. |
 
 ## 📖 Uso
 
@@ -145,6 +146,8 @@ Para usar los ejemplos, necesitas reemplazar los valores de los placeholders (`A
 | **URL**      | `alias`      | (Opcional) Alias personalizado para la URL corta.                        |
 | **WhatsApp** | `templateId` | ID de la plantilla de WhatsApp aprobada por Meta.                        |
 | **WhatsApp** | `data`       | Un objeto C# que se convertirá a JSON con los valores para la plantilla. |
+| **WhatsApp** | `from_phone_meta_id` | ID del Meta del teléfono que enviará el mensaje. |
+| **WhatsApp** | `message` | Objeto JSON que contiene el tipo y valor del mensaje. |
 
 ### Ejemplo de parámetros para `sms/SendSMS.cs`
 
