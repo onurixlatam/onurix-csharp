@@ -13,14 +13,14 @@ namespace PruebaOnurix
 
         public static void WhatsAppSendWithoutTemplate()
         {
-            string key = "416743ddb4694a3ec6bd0dd6642e53a6f610da956583ac374709e";
-            string client = "1";
+            string key = "AQUI_SU_SECRET_KEY";
+            string client = "AQUI_SU_CLIENT_ID";
             string jsonBody = @"{
-                ""from_phone_meta_id"": ""120769527678113"",
-                ""phone"": ""3203711034"",
+                ""from_phone_meta_id"": ""AQUI_EL_META_ID_DEL_TELEFONO"",
+                ""phone"": ""AQUI_EL_TELEFONO_DESTINO"",
                 ""message"": {
                     ""type"" : ""text"",
-                    ""value"": ""Esto es un mensaje sin plantilla desde csharp""
+                    ""value"": ""AQUI_EL_MENSAJE""
                 }
             }";
 
