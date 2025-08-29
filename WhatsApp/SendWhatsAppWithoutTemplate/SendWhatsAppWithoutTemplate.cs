@@ -29,7 +29,7 @@ namespace PruebaOnurix
                 BaseAddress = new Uri("https://www.onurix.com/"),
             };
             
-            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send_without_template?client={client}&key={key}", new StringContent(jsonBody, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send/no-template?client={client}&key={key}", new StringContent(jsonBody, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseString);
         }
