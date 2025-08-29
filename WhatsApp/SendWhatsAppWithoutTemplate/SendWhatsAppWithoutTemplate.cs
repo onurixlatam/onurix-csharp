@@ -26,7 +26,7 @@ namespace PruebaOnurix
 
             using var httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("http://127.0.0.1:8001/"),
+                BaseAddress = new Uri("https://www.onurix.com/"),
             };
             
             HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send_without_template?client={client}&key={key}", new StringContent(jsonBody, Encoding.UTF8, "application/json")).Result;
