@@ -85,25 +85,28 @@ A continuación, se detalla cada endpoint de ejemplo y el método HTTP que utili
 | :----------------------- | :------------ | :-------------------------------------------------------------- |
 | `SendWhatsApp2FA.cs`     | `POST (JSON)` | Envía un mensaje de WhatsApp con un código de verificación 2FA. |
 | `WhatsAppGeneralSend.cs` | `POST (JSON)` | Envía un mensaje de WhatsApp usando una plantilla.              |
+| `SendWhatsAppWithoutTemplate.cs` | `POST (JSON)` | Envía un mensaje de WhatsApp sin usar una plantilla. |
 
 ## 📖 Uso
 
-1.  **Clona el repositorio y restaura las dependencias:**
-    Este proyecto utiliza el cliente HTTP de .NET.
+1.  **Clona el repositorio:**
     ```bash
     git clone https://github.com/onurixlatam/onurix-csharp.git
     cd onurix-csharp
-    dotnet restore
     ```
 
-2.  **Navega al directorio** del endpoint que deseas utilizar (ej. `SMS`).
-
-3.  **Edita el archivo `.cs`** y reemplaza los valores de los placeholders como se explica en la sección de [Configuración de Parámetros](#️-configuración-de-parámetros).
-
-4.  **Ejecuta el script** desde tu terminal:
+2.  **Navega al directorio del ejemplo** que deseas utilizar. Por ejemplo, para enviar un SMS, usarías:
     ```bash
-    dotnet run --project SMS/SendSMS.cs
+    cd SMS/SendSMS
     ```
+
+3.  **Edita el archivo `.cs`** (ej. `SendSMS.cs`) con tu editor de código preferido y reemplaza los valores de las variables (`AQUI_SU_KEY`, `AQUI_SU_CLIENT`, etc.) con tus datos.
+
+4.  **Ejecuta el ejemplo** desde tu terminal con el comando `dotnet run`:
+    ```bash
+    dotnet run
+    ```
+    El comando `dotnet run` compilará y ejecutará automáticamente el proyecto definido en la carpeta actual.
 
 5.  **Verifica la respuesta** que se imprimirá en la consola.
 
@@ -143,6 +146,8 @@ Para usar los ejemplos, necesitas reemplazar los valores de los placeholders (`A
 | **URL**      | `alias`      | (Opcional) Alias personalizado para la URL corta.                        |
 | **WhatsApp** | `templateId` | ID de la plantilla de WhatsApp aprobada por Meta.                        |
 | **WhatsApp** | `data`       | Un objeto C# que se convertirá a JSON con los valores para la plantilla. |
+| **WhatsApp** | `from_phone_meta_id` | ID del Meta del teléfono que enviará el mensaje. |
+| **WhatsApp** | `message` | Objeto JSON que contiene el tipo y valor del mensaje. |
 
 ### Ejemplo de parámetros para `sms/SendSMS.cs`
 
