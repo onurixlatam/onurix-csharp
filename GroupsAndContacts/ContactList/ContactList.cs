@@ -7,16 +7,17 @@ namespace PruebaOnurix
     {
         public static void Main(string[] args)
         {
-            GroupList("AQUI_SU_KEY", "AQUI_SU_ID", "AQUI_NUMERO_PAGINA");
+
+            ContactGroupList("AQUI_SU_CLIENT", "AQUI_SU_KEY", "AQUI_NUMERO_PAGINA");
         }
 
-        public static void GroupList(string key ,string client, string page = "1")
+        public static void ContactGroupList(string client,string key, string page = "1")
         {
             using var httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("https://www.onurix.com/"),
             };
-            HttpResponseMessage request = httpClient.GetAsync($"api/v1/group/list?key={key}&client={client}&page{page}").Result;
+            HttpResponseMessage request = httpClient.GetAsync($"api/v1/contacts/list?key={key}&client={client}&page{page}").Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseString);
         }
