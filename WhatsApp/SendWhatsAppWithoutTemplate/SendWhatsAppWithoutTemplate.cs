@@ -15,6 +15,7 @@ namespace PruebaOnurix
         {
             string key = "AQUI_SU_SECRET_KEY";
             string client = "AQUI_SU_CLIENT_ID";
+            string phoneSenderId = "AQUI_EL_ID_DEL_NUMERO_DE_TELEFONO_REMITENTE";
             string jsonBody = @"{
                 ""from_phone_meta_id"": ""AQUI_EL_META_ID_DEL_TELEFONO"",
                 ""phone"": ""AQUI_EL_TELEFONO_DESTINO"",
@@ -29,7 +30,7 @@ namespace PruebaOnurix
                 BaseAddress = new Uri("https://www.onurix.com/"),
             };
             
-            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send/no-template?client={client}&key={key}", new StringContent(jsonBody, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send/no-template?client={client}&key={key}&phone_sender_id={phoneSenderId}", new StringContent(jsonBody, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseString);
         }

@@ -16,11 +16,12 @@ namespace PruebaOnurix
             string client = "AQUI_SU_CLIENT";
             string templateId = "AQUI_EL_ID_DE_LA_PLANTILLA";
             string parameters = "AQUI_EL_JSON_CON_LOS_VALORES_PARA_LA_PLANTILLA";
+            string phoneSenderId = "AQUI_EL_ID_DEL_NUMERO_DE_TELEFONO_REMITENTE";
             using var httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("https://www.onurix.com/"),
             };
-            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send?client={client}&key={key}&templateId={templateId}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send?client={client}&key={key}&template_id={templateId}&phone_sender_id={phoneSenderId}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseString);
         }
