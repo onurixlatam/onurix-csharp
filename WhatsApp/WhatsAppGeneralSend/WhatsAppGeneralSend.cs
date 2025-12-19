@@ -21,7 +21,7 @@ namespace PruebaOnurix
             {
                 BaseAddress = new Uri("https://www.onurix.com/"),
             };
-            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send?client={client}&key={key}&template_id={templateId}&phone_sender_id={phoneSenderId}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage request = httpClient.PostAsync($"api/v1/whatsapp/send?client={client}&key={key}&template-id={templateId}&phone-sender-id={phoneSenderId}", content: new StringContent(parameters, Encoding.UTF8, "application/json")).Result;
             string responseString = request.Content.ReadAsStringAsync().Result;
             Console.WriteLine(responseString);
         }
